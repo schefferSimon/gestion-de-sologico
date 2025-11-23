@@ -36,9 +36,25 @@ class Reserva:
     #----------------terminar-------------------
     @staticmethod
     def validar_fecha(fecha):
-        año, mes, dia = fecha
-        if len(año) == 4 and mes < 12 and dia:
-            pass
+        reloj = 0
+        for i in fecha:
+            reloj += 1
+            if reloj == 5:
+                if i == "-":
+                    continue
+                else : 
+                    return False
+            elif reloj == 8 :
+                if i == "-":
+                    continue
+                else:
+                    return False
+                    
+        return True
+
+        
+
+    
 
 class ReserveDiurna(Reserva):
     def __init__(self, nombreVisitante, fecha, cantidad_de_personas, duracion_horas):
