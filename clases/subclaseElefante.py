@@ -7,7 +7,7 @@ class Elefante(Animal):
         self.__tamano = tamano
         
     def informacion(self):
-        pass
+        return f"{super().informacion()} Tanaño: {self.__tamano}."
 
     def sonido(self):
         return "Barrito"

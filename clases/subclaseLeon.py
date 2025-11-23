@@ -8,6 +8,9 @@ class Leon(Animal):
             self.__peso = peso
         else: raise TypeError("El peso otorgado no es valido o es menor a 1")
     
+    def informacion(self):
+        return f"{super().informacion()} Peso: {self.__peso}."
+
     def sonido(self):
         return "Rugido"
 
