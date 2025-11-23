@@ -17,3 +17,4 @@ elefante = Elefante("anastasio", "gris", 34, "Groenlandia", 50)
 
 
 reproducir_sonidos([pajaro, leon, elefante])
+animalesInfo([pajaro, leon, elefante])
