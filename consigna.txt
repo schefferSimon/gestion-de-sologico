@@ -212,3 +212,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+================================ 
+Excepciones personalizadas
+ class NuevaExcepcionError(Exception):
+ def __init__(self, p1, p2):
+ self._p1 = p1
+ self._p2 = p2
+ try:
+ raise NuevaExcepcionError(“V1”, 100)
+ except Exception as ex :
+ print(‘Se produjo una excepción’, type(ex))
+ p1 , p2 = ex.args
+ POO - Prof. Carlos Berger
+ Por Herencia
+ Constructor que recibe los parámetros necesarios 
+para obtener información del problema
+ Recuperamos la información de la excepción para realizar 
+alguna operación específica o describir el problema
