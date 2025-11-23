@@ -2,6 +2,7 @@ from clases.subclaseAve import Ave
 from clases.subclaseElefante import Elefante
 from clases.subclaseLeon import Leon
 
+
 def reproducir_sonidos(lista_animales):
     for animal in lista_animales:
         print(animal.sonido())
@@ -12,3 +13,4 @@ elefante = Elefante("anastasio", "gris", 34, "Groenlandia", 50)
 
 
 reproducir_sonidos([pajaro, leon, elefante])
+
