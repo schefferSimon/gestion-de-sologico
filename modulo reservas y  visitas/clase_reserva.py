@@ -2,7 +2,7 @@ class Reserva:
     def __init__(self, nombreVisitante, fecha , cantidad_de_personas, duracion_horas):
         if not isinstance(nombreVisitante, str) and nombreVisitante == "":
             raise ValueError("nombre vacio")
-        if not len(fecha) == 3 and isinstance(fecha, tuple) :
+        if not len(fecha) == 3 and isinstance(fecha, (int)) :
             raise ValueError("fecha vacia")
         if not isinstance(cantidad_de_personas, int) and cantidad_de_personas > 0 :
             raise ValueError("las cantidad de personas tiene que ser mayor a cero")
@@ -20,7 +20,14 @@ class Reserva:
     def descripcion_reserva(self):
         return f"Reserva normal\nel visitante: {self.__visitante}, fecha de reserva: {self.__fecha}, horas {self.__duracion_horas}, cantidad de personas: {self.__cantidad_de_personas}"
     
-    def costo_total():
+    def costo_total(self):
+        return self.__costo_base * self.__cantidad_de_personas * self.__duracion_horas
+    
+    #----------------terminar-------------------
+    @staticmethod
+    def validar_fecha(fecha):
+        año, mes, dia = fecha
+        if len(año) == 4 and mes < 12 and dia :
         pass
 
 class ReserveDiurna(Reserva):
@@ -50,4 +57,10 @@ class ReservaEducativa(Reserva):
     def __init__(self, nombreVisitante, fecha, cantidad_de_personas, duracion_horas):
         super().__init__(nombreVisitante, fecha, cantidad_de_personas, duracion_horas)
 
+    def costo_total(self):
+        #precio por persona
+        costo = self.costo_total * self.__cantidad_de_personas * 0.60
+        return costo
     
+    def descripcion_reserva(self):
+        return f"Reserva Educativa\n{super().descripcion_reserva()}"
