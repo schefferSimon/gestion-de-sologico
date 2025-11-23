@@ -1,26 +1,37 @@
 class Animal():
     def __init__(self, nombre, especie, edad, habitat):
-        self.__nombre = nombre
+        if isinstance(nombre, str) and not nombre == "":
+            self.__nombre = nombre
+        else: raise TypeError("El nombre otorgado no es valido o esta vacio.")
+        
+        if isinstance(edad, int) and not edad <= 0:
+            self.__edad = edad
+        else: raise TypeError("El nombre otorgado no es valido o es menor a 1")
+        
+        if isinstance(habitat, str) and not habitat == "":
+            self.__habitat = habitat
+        else: raise TypeError("El habitat otorgado no es valido o esta vacio.")
+        
         self.__especie = especie
-        self.__edad = edad
-        self.__habitat = habitat
+        
+        
 
-    def informacion():
+    def informacion(self):
         pass
     
-    def sonido():
+    def sonido(self):
         pass
 
-    def alimentar(comida):
+    def alimentar(self, comida):
         pass
 
-    def mover(*args): #Sobrecarga
+    def mover(self, *args): #Sobrecarga
         pass
 
-    def camina():
+    def camina(self):
         pass
 
-    def camina(metros):
+    def camina(self, metros):
         pass
 
     
