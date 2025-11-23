@@ -9,11 +9,11 @@ class Reserva:
                 if not isinstance(i, int):
                     raise TypeError("El contenido de la fecha debe ser entero.")
                 
-                dd = fecha(0) 
-                mm = fecha(1)
-                aa = fecha(2)
-                self.__fecha = aa + "-" + mm + "-" + dd
-                print(self.__fecha) #Para debugear
+                dd = fecha[0] 
+                mm = fecha[1]
+                aa = fecha[2]
+                self.__fecha = f"{aa} - {mm} -  {dd}"
+                #print(self.__fecha) #Para debugear
         if not isinstance(cantidad_de_personas, int) and cantidad_de_personas > 0 :
             raise ValueError("las cantidad de personas tiene que ser mayor a cero")
 
@@ -21,7 +21,7 @@ class Reserva:
         #self.__fecha = fecha
         self.__duracion_horas = duracion_horas
         self.__cantidad_de_personas = cantidad_de_personas
-        self.__costo_base = 10000
+        self.__costo_base = 5000
     
     def getCosto_base(self):
         return self.__costo_base
@@ -30,7 +30,7 @@ class Reserva:
     def descripcion_reserva(self):
         return f"Reserva normal\nel visitante: {self.__visitante}, fecha de reserva: {self.__fecha}, horas {self.__duracion_horas}, cantidad de personas: {self.__cantidad_de_personas}"
     
-    def costo_total(self):
+    def costoTotal(self):
         return self.__costo_base * self.__cantidad_de_personas * self.__duracion_horas
     
     #----------------terminar-------------------
@@ -56,7 +56,6 @@ class Reserva:
         for reserva in reservas:
             print(reserva.costoTotal())
 
-    
 
 
     

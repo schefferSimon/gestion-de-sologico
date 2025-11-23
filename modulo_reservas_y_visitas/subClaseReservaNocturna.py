@@ -1,4 +1,4 @@
-from clase_reserva import *
+from modulo_reservas_y_visitas.clase_reserva import Reserva
 
 class ReservaNocturna(Reserva):
     def __init__(self, nombreVisitante, fecha, cantidad_de_personas, duracion_horas):
