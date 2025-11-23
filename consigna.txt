@@ -1,0 +1,214 @@
+1. Clase base: Animal
+
+Atributos mínimos:
+
+nombre
+
+especie
+
+edad
+
+hábitat
+
+Métodos:
+
+constructor con validaciones (manejo de errores)
+
+método informacion()
+
+método polimórfico sonido() (solo definido, no implementado)
+
+método alimentar(comida)
+
+método con sobrecarga simulada: mover()
+
+sin parámetros → “camina”
+
+con un parámetro → “camina X metros”
+
+Manejo de errores:
+
+si la edad no es número
+
+si el nombre es cadena vacía
+
+si el hábitat no es válido
+
+2. Herencia
+
+Crear subclases:
+
+Leon
+
+atributo: peso
+
+sobrescribe informacion()
+
+sobrescribe sonido() (“rugido”)
+
+Elefante
+
+atributo: tamaño
+
+sobrescribe informacion()
+
+sobrescribe sonido() (“barrito”)
+
+Ave
+
+atributo: tipo_ave
+
+sobrescribe informacion()
+
+sobrescribe sonido() (“canto”)
+
+sobrescribe mover() para que diga “vuela”
+
+3. Polimorfismo
+
+Crear una función:
+
+def reproducir_sonidos(lista_animales):
+    for animal in lista_animales:
+        print(animal.sonido())
+
+
+La lista tendrá Leones, Elefantes, Aves mezclados.
+
+4. Manejo de errores personalizados
+
+Crear errores:
+
+AnimalInvalidoError
+
+DatoAnimalError
+
+PARTE 2 — “Módulo Reservas y Visitas” (Persona B)
+Objetivo:
+
+Crear un sistema para gestionar reservas de visitas guiadas al zoológico.
+
+1. Clase base: Reserva
+
+Atributos:
+
+visitante (nombre del visitante)
+
+fecha
+
+cantidad_personas
+
+duracion_horas
+
+Métodos:
+
+constructor con validaciones
+
+descripcion_reserva()
+
+método polimórfico costo_total()
+
+Errores:
+
+visitante vacío
+
+fecha vacía
+
+cantidad_personas <= 0
+
+2. Herencia
+
+Crear subclases:
+
+ReservaDiurna
+
+tiene recargo por horario “pico”
+
+sobrescribe costo_total()
+
+ReservaNocturna
+
+tiene incremento por “visita nocturna”
+
+sobrescribe costo_total()
+
+sobrescribe descripcion_reserva()
+
+ReservaEducativa
+
+descuento especial para escuelas
+
+sobrescribe ambos métodos
+
+3. Método estático
+
+Agregar a Reserva un método estático:
+
+def validar_fecha(fecha):
+    # devuelve True si tiene formato válido YYYY-MM-DD
+
+4. Sobrecarga simulada
+
+Crear método en Reserva:
+
+def aplicar_descuento(self, *args):
+    # sin args: 5% descuento
+    # un arg: aplicar ese porcentaje
+    # dos args: descuento solo si cantidad_personas está entre los valores
+
+5. Polimorfismo
+
+Crear función:
+
+def mostrar_costos(reservas):
+    for r in reservas:
+        print(r.costo_total())
+
+🔵 UNIÓN FINAL DEL PROYECTO
+
+Estructura final:
+
+/zoologico/
+    animales/
+        animal.py
+        leon.py
+        elefante.py
+        ave.py
+        errores_animales.py
+
+    reservas/
+        reserva.py
+        reserva_diurna.py
+        reserva_nocturna.py
+        reserva_educativa.py
+        errores_reservas.py
+
+    main.py
+
+main.py — integración final
+from animales.leon import Leon
+from animales.elefante import Elefante
+from animales.ave import Ave
+
+from reservas.reserva_diurna import ReservaDiurna
+from reservas.reserva_nocturna import ReservaNocturna
+
+def main():
+    leon1 = Leon("Simba", 5, "Sabana", 190)
+    ave1 = Ave("Pico", 2, "Selva", "Loro")
+
+    reserva1 = ReservaDiurna("Carlos Perez", "2025-06-10", 4, 2)
+    reserva2 = ReservaNocturna("Marina Lopez", "2025-06-12", 2, 1)
+
+    # Polimorfismo animales
+    animales = [leon1, ave1]
+    for a in animales:
+        print(a.sonido())
+
+    # Polimorfismo reservas
+    reservas = [reserva1, reserva2]
+    for r in reservas:
+        print(r.costo_total())
+
+if __name__ == "__main__":
+    main()
