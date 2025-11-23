@@ -13,11 +13,20 @@ class Animal():
         else: raise TypeError("El habitat otorgado no es valido o esta vacio.")
         
         self.__especie = especie
-        
-        
+    
+    
+    def getNombre(self):
+        return f"{self.__nombre}"
+    def getEspecie(self):
+        return f"{self.__especie}"
+    def getEdad(self):
+        return f"{self.__edad}"
+    def getHabitat(self):
+        return f"{self.__habitat}"
+
 
     def informacion(self):
-        pass
+        return f"Nombre: {self.getNombre()}. Especie: {self.getEspecie()}. Edad: {self.getEdad()}. Habitat: {self.getHabitat()}. "
     
     def sonido(self):
         pass

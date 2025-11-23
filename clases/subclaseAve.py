@@ -7,7 +7,7 @@ class Ave(Animal):
         self.__tipoAve = tipoAve
 
     def informacion(self):
-        pass
+        return f"{super().informacion()} TipoAve: {self.__tipoAve}."
 
     def sonido(self):
         return "Canto"
