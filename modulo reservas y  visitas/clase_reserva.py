@@ -51,8 +51,10 @@ class Reserva:
                     return False
                     
         return True
-
-        
+    
+    def mostrarCostos(reservas):
+        for reserva in reservas:
+            print(reserva.costoTotal())
 
     
 
