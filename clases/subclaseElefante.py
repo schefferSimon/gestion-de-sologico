@@ -6,8 +6,8 @@ class Elefante(Animal):
 
         self.__tamano = tamano
         
-        def informacion(self):
-            pass
+    def informacion(self):
+        pass
 
-        def sonido(self):
-            return "Barrito"
+    def sonido(self):
+        return "Barrito"
